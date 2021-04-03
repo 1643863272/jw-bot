@@ -3,7 +3,7 @@
 using namespace std;
 using namespace Cyan;
 
-void CmdWeather(Message m)
+void CmdWeatherOneWeek(Message m)
 {
 	string txt = m.MessageChain.GetPlainTextFirst();
 	if (txt != "一周天气" && txt != "七天天气" && txt != "查一周天气" && txt != "本周天气") return;
