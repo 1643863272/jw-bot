@@ -17,17 +17,17 @@ void CmdWeatherOneWeek(Message m)
 		//cout << "wea size:" << weathers.size() << endl;
 		for (size_t i = 0; i < weathers.size(); i++)
 		{
-			string pos = (weathers[i].position == "SF") ? "科学城" : "南岸";
+			string pos = (weathers[i].Position == "SF") ? "科学城" : "南岸";
 			mc.Plain("地点：").Plain(pos).Plain("\n");
-			mc.Plain("日期：").Plain(weathers[i].date).Plain("\n");
-			mc.Plain("天气：").Plain(weathers[i].weather).Plain("\n");
-			if (weathers[i].maxTem == "None")
+			mc.Plain("日期：").Plain(weathers[i].Date).Plain("\n");
+			mc.Plain("天气：").Plain(weathers[i].Weather).Plain("\n");
+			if (weathers[i].MaxTemperature == "None")
 			{
-				mc.Plain("最小温度：").Plain(weathers[i].minTem);
+				mc.Plain("最小温度：").Plain(weathers[i].MinTemperature);
 			}
 			else
 			{
-				mc.Plain("温度：").Plain(weathers[i].minTem).Plain("-").Plain(weathers[i].maxTem);
+				mc.Plain("温度：").Plain(weathers[i].MinTemperature).Plain("-").Plain(weathers[i].MaxTemperature);
 			}
 
 			m.Reply(mc);
