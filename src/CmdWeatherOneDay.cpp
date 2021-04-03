@@ -14,15 +14,15 @@ void CmdWeatherOneDay(Message m)
 	{
 		auto mc = MessageChain();
 		//25小时内的天气（温度、降水量）
-		auto weaOneDays = JwApi.GetWeaOneDay();
-		for (int i = weaOneDays.size() - 1; i >= 0; i--)
+		auto weatherOneDays = JwApi.GetWeatherOneDay();
+		for (int i = weatherOneDays.size() - 1; i >= 0; i--)
 		{
-			std::string pos = (weaOneDays[i].pos == "SF") ? "科学城" : "南岸";
-			std::string day = (weaOneDays[i].day == "today") ? "今天" : "明天";
+			std::string pos = (weatherOneDays[i].Position == "SF") ? "科学城" : "南岸";
+			std::string day = (weatherOneDays[i].Day == "today") ? "今天" : "明天";
 			mc.Plain("地点:").Plain(pos).Plain("\n");
-			mc.Plain(day).Plain(" ").Plain(weaOneDays[i].hour).Plain("点\n");
-			mc.Plain("温度:").Plain(weaOneDays[i].tem).Plain("℃\n");
-			mc.Plain("降水量:").Plain(weaOneDays[i].precipi).Plain("mm");
+			mc.Plain(day).Plain(" ").Plain(weatherOneDays[i].Hour).Plain("点\n");
+			mc.Plain("温度:").Plain(weatherOneDays[i].Temperature).Plain("℃\n");
+			mc.Plain("降水量:").Plain(weatherOneDays[i].Precipitation).Plain("mm");
 			m.Reply(mc);
 			mc.Clear();
 		}
@@ -30,15 +30,15 @@ void CmdWeatherOneDay(Message m)
 	}
 	catch (const std::exception& ex)
 	{
-		//LOG(ERROR) << "[" << m.Sender.ToInt64() << "] 使用 [今日天气] 指令出现异常: " << ex.what();
-		//try
-		//{
-		//	m.Reply(MessageChain().Plain("出现错误："s + ex.what()));
-		//}
-		//catch (const exception& ex)
-		//{
-		//	LOG(ERROR) << "[" << m.Sender.ToInt64() << "] 使用 [今日天气] 指令出现异常" << ex.what();
-		//}
+		LOG(ERROR) << "[" << m.Sender.ToInt64() << "] 使用 [今日天气] 指令出现异常: " << ex.what();
+		try
+		{
+			m.Reply(MessageChain().Plain("出现错误："s + ex.what()));
+		}
+		catch (const exception& ex)
+		{
+			LOG(ERROR) << "[" << m.Sender.ToInt64() << "] 使用 [今日天气] 指令出现异常" << ex.what();
+		}
 	}
 
 }
