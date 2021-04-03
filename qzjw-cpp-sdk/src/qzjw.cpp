@@ -265,7 +265,7 @@ namespace cyanray
 		vector<Weather> allWeather;
 
 		vector<Weather> sfWeather = GetWeatherOneWeekByUrl(SFURL, "SF");
-		vector<Weather> naWeather = GetWeatherOneWeekByUrl(SFURL, "NA");
+		vector<Weather> naWeather = GetWeatherOneWeekByUrl(NAURL, "NA");
 
 		allWeather.insert(allWeather.end(), sfWeather.begin(), sfWeather.end());
 		allWeather.insert(allWeather.end(), naWeather.begin(), naWeather.end());
@@ -335,7 +335,7 @@ namespace cyanray
 		vector<WeatherOneDay> allWeatherOneDay;
 
 		vector<WeatherOneDay> sfWeather = GetWeatherOneDayByUrl(SFURL, "SF");
-		vector<WeatherOneDay> naWeather = GetWeatherOneDayByUrl(SFURL, "NA");
+		vector<WeatherOneDay> naWeather = GetWeatherOneDayByUrl(NAURL, "NA");
 
 		allWeatherOneDay.insert(allWeatherOneDay.end(), sfWeather.begin(), sfWeather.end());
 		allWeatherOneDay.insert(allWeatherOneDay.end(), naWeather.begin(), naWeather.end());
