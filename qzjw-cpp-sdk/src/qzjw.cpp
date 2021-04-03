@@ -305,7 +305,7 @@ namespace cyanray
 					wea.Date = li["h1"].GetInner();
 					
 					auto ps = li.SearchByTagName("p");
-					wea.Weather = ps[0].GetInner();
+					wea.WeatherCondition = ps[0].GetInner();
 					wea.MinTemperature = ps[1]["i"].GetInner();
 
 					//晚上时当前无最大温度

@@ -20,7 +20,7 @@ void CmdWeatherOneWeek(Message m)
 			string position = (weathers[i].Position == "SF") ? "科学城" : "南岸";
 			mc.Plain("地点：").Plain(position).Plain("\n");
 			mc.Plain("日期：").Plain(weathers[i].Date).Plain("\n");
-			mc.Plain("天气：").Plain(weathers[i].Weather).Plain("\n");
+			mc.Plain("天气：").Plain(weathers[i].WeatherCondition).Plain("\n");
 			if (weathers[i].MaxTemperature == "None")
 			{
 				mc.Plain("最小温度：").Plain(weathers[i].MinTemperature);
